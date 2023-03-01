@@ -9,15 +9,18 @@ class Hat:
             for ball in range(colors[color]):
                 self.contents.append(color)
 
-    def draw(self, number):
-        balls_to_draw = random.sample(self.contents, number)
+    def draw(self, num_balls):
+        if num_balls >= len(self.contents):
+            return self.contents
 
-        if balls_to_draw <= self.contents:
-            for ball in copy.copy(self.contents):
-                if ball in balls_to_draw:
-                    self.contents.remove(ball)
+        balls_drawn = list()
 
-        return balls_to_draw
+        for i in range(num_balls):
+            ball = random.choice(self.contents)
+            self.contents.remove(ball)
+            balls_drawn.append(ball)
+
+        return balls_drawn
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
     return 0
