@@ -31,6 +31,5 @@ class UnitTests(unittest.TestCase):
         expected = 1.0
         self.assertAlmostEqual(actual, expected, delta = 0.01, msg = 'Expected experiment method to return a different probability.')
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
